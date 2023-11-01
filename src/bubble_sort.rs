@@ -1,5 +1,13 @@
+use std::ptr;
+
 fn bubble_sort<T: Ord + Copy>(a: &mut [T]) {
-    todo!()
+    for i in 0..a.len() {
+        for j in 0..a.len() - i - 1 {
+            if a[j] > a[j + 1] {
+                unsafe { ptr::swap(&mut a[j], &mut a[j + 1]) };
+            }
+        }
+    }
 }
 
 #[test]

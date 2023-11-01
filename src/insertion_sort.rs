@@ -1,5 +1,15 @@
+use std::{mem, ptr};
+
 fn insertion_sort<T: Ord + Copy>(a: &mut [T]) {
-    todo!()
+    for i in 1..a.len() {
+        let temp = a[i];
+        let mut j = i;
+        while j > 0 && a[j - 1] > temp {
+            a[j] = a[j - 1];
+            j -= 1;
+        }
+        a[j] = temp;
+    }
 }
 
 #[test]

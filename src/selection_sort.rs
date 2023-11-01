@@ -1,5 +1,17 @@
+use std::ptr;
+
 fn selection_sort<T: Ord + Copy>(a: &mut [T]) {
-    todo!()
+    for i in 0..a.len() {
+        let mut min = i;
+        for j in i..a.len() {
+            if a[j] < a[min] {
+                min = j;
+            }
+        }
+        unsafe {
+            ptr::swap(&mut a[i], &mut a[min]);
+        }
+    }
 }
 
 #[test]
